@@ -20,7 +20,15 @@ public:
 public:
     Screen &set(char);
     Screen &set(pos,pos,char);
+    Screen &display(ostream &os){do_display(os);return *this;};
+    const Screen &display(ostream &os) const {do_display(os);return *this;};
 private:
+    void do_display(ostream &os) const
+    {
+        os << contents;
+    }
+private:
+
     pos height = 0;
     pos width = 0;
     pos cursor = 0;
